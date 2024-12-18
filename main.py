@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 @app.route("/process", methods=["POST"])
 def process_image():
+    return jsonify({"message": "Test successful"})
     try:
         # Get input and output paths from the request
         input_url = request.json["input_url"]
