@@ -51,5 +51,9 @@ def process_image():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+import os
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    port = int(os.environ.get("PORT", 8080))  # Bind to Render's dynamic port
+    app.run(host="0.0.0.0", port=port)
+
