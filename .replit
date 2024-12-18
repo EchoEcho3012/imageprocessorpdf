@@ -1,0 +1,20 @@
+entrypoint = "main.py"
+modules = ["python-3.11"]
+
+[nix]
+channel = "stable-24_05"
+
+[unitTest]
+language = "python3"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+deploymentTarget = "static"
+publicDir = "imageprocessor-2103"
+build = ["sh", "-c", "pip freeze > requirements.txt"]
+
+[[ports]]
+localPort = 8080
+externalPort = 80
